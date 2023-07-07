@@ -21,7 +21,7 @@ def generate_article(topic):
     # The schema I want out
     response_schemas = [
         ResponseSchema(name="title", description="The clickbait title of the article"),
-        ResponseSchema(name="content", description="content of the article in around 700 words"),
+        ResponseSchema(name="content", description="content of the article in around 1000 words"),
         ResponseSchema(name="category", description="The category of the article"),
         ResponseSchema(name="Products", description="items I can sell to person reading this article"),
         ResponseSchema(name="summary", description="brief to a painter for the article in 2-3 sentences")
