@@ -1,0 +1,14 @@
+{
+    "Places to visit abroad in low budget": {
+        "title": "10 Affordable International Destinations for Indian Travelers",
+        "content": "Traveling abroad doesn't have to break the bank! Here are 10 stunning international destinations that are perfect for Indian travelers on a budget. From exploring ancient ruins in Southeast Asia to experiencing vibrant cultures in South America, this article will guide you through affordable travel options that offer incredible experiences without draining your wallet. So pack your bags and get ready for an unforgettable adventure!",
+        "category": "Travel",
+        "Products": "Travel insurance, luggage accessories, travel guides",
+        "summary": "This article highlights 10 affordable international destinations for Indian travelers, providing budget-friendly options for exploring the world without spending a fortune.",
+        "Image_url": "/Users/sudhirsundrani/Documents/python_scripts/langchain/apnibaat_backend-master/data_gen_load/../outputs/images/10-affordable-international-destinations-for-indian-travelers.png",
+        "Slug": "10-affordable-international-destinations-for-indian-travelers",
+        "Image_source": "generate_image_dream_studio",
+        "keywords": "Traveling, abroad, break",
+        "ArticleAboutPeople": false
+    }
+}
