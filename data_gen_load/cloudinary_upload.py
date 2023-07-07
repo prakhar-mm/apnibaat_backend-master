@@ -1,31 +1,25 @@
-#working
 import os
 import json
 import cloudinary
 import cloudinary.uploader
 from dotenv import load_dotenv
-import os
 
 # Load .env file
 load_dotenv()
 
-
-
 import sys
 sys.path.append('./')
-
-
 
 cloudinary_cloud_name = os.getenv("CLOUD_NAME")
 cloudinary_api_key = os.getenv("CLOUD_API_KEY")
 cloudinary_api_secret = os.getenv("CLOUD_API_SECRET")
-
 
 # Set up your Cloudinary credentials
 cloudinary.config(
     cloud_name=cloudinary_cloud_name,
     api_key=cloudinary_api_key,
     api_secret=cloudinary_api_secret,
+    secure=True  # Force HTTPS
 )
 
 # Load input JSON data
@@ -56,7 +50,7 @@ for article_name, article_data in input_data.items():
             response = cloudinary.uploader.upload(local_image_path)
 
             # Store the uploaded image URL in the dictionary
-            cloudinary_url = response['url']
+            cloudinary_url = response['secure_url']  # Use 'secure_url' instead of 'url'
             uploaded_image_urls[image_file] = cloudinary_url
         except Exception as e:
             print(f"Failed to upload {image_file}: {e}")

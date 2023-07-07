@@ -154,7 +154,7 @@ if st.session_state.submit and topic != '' and topic != 'Try Something':
             url = base_url.format(file_name)
 
             
-            files = glob.glob('outputs/images/**/*.json',recursive=True)
+            files = glob.glob('outputs/images/**/*',recursive=True)
             for f in files:
                 os.remove(f)
             files = glob.glob('outputs/translated/**/*.json',recursive=True)
@@ -183,7 +183,7 @@ if st.session_state.submit and topic != '' and topic != 'Try Something':
             files = glob.glob('outputs/content/**/*.json',recursive=True)
             for f in files:
                 os.remove(f)
-            files = glob.glob('outputs/images/**/*.json',recursive=True)
+            files = glob.glob('outputs/images/**/*',recursive=True)
             for f in files:
                 os.remove(f)
             

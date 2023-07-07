@@ -15,13 +15,13 @@ load_dotenv()
 openai_key = os.getenv('OPENAI_KEY')
 
 # Initialize the chat model
-chat_model = ChatOpenAI(temperature=0.7, model_name='gpt-3.5-turbo', openai_api_key=openai_key)
+chat_model = ChatOpenAI(temperature=0.7, model_name='gpt-3.5-turbo-16k', openai_api_key=openai_key)
 
 def generate_article(topic):
     # The schema I want out
     response_schemas = [
-        ResponseSchema(name="title", description="The clickbait title of the article"),
-        ResponseSchema(name="content", description="content of the article in around 1000 words"),
+        ResponseSchema(name="title", description="article headline to generate maximum clicks"),
+        ResponseSchema(name="content", description="article about prompt in around 1000 words"),
         ResponseSchema(name="category", description="The category of the article"),
         ResponseSchema(name="Products", description="items I can sell to person reading this article"),
         ResponseSchema(name="summary", description="brief to a painter for the article in 2-3 sentences")
