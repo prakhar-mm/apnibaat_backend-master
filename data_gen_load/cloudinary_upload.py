@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 # Load .env file
 load_dotenv()
 
+
 import sys
 sys.path.append('./')
 
