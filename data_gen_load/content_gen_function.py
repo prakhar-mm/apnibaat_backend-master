@@ -7,21 +7,25 @@ import os
 import subprocess
 from dotenv import load_dotenv
 
+from pydantic import BaseModel, Field
+from simpleaichat import AIChat
 
 # Load .env file
 load_dotenv()
 
 # Now you can access the keys in .env as environment variables
-openai.api_key = os.getenv('OPENAI_KEY')
+api_key1 = os.getenv('OPENAI_KEY')
+#openai.api_key = openai_key
+#AIChat(api_key=api_key1)
+#openai.api_key = os.environ["OPENAI_KEY"]
 
-# %%
-from pydantic import BaseModel, Field
-from simpleaichat import AIChat
+
 
 ai = AIChat(
+    api_key=api_key1,
     console=False,
     save_messages=False,  # with schema I/O, messages are never saved
-    model="gpt-3.5-turbo-0613",
+    model="gpt-3.5-turbo-16k",
     params={"temperature": 0.7},
 )
 
@@ -30,14 +34,14 @@ class get_event_metadata(BaseModel):
 
     content: str = Field(description="blog article about prompt in around 1000 tokens. Add logical markdowns if missing in Content")
     title: str = Field(description="article headline to generate maximum engagement")
-    catagory: int = Field(description="The category of the article")
+    catagory: int = Field(description="article category classification")
     Products: str = Field(description="items that can be sold to person reading this article")
     Summary: str = Field(description="article summary in 50 words ")
 
 # returns a dict, with keys ordered as in the schema
 ai("First iPhone announcement", output_schema=get_event_metadata)
 
-
+#Add logical markdowns 
 # # Initialize the chat model
 # chat_model = ChatOpenAI(temperature=0.7, model_name='gpt-3.5-turbo-16k', openai_api_key=openai_key)
 

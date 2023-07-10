@@ -20,11 +20,11 @@ chat_model = ChatOpenAI(temperature=0.7, model_name='gpt-3.5-turbo-16k', openai_
 def generate_article(topic):
     # The schema I want out
     response_schemas = [
-        ResponseSchema(name="Content", description="article about prompt in around 1000 tokens. Add logical markdowns if missing in Content"),
+        ResponseSchema(name="Content", description="article about prompt in around 1000 tokens. "),
         ResponseSchema(name="Title", description="article headline to generate maximum clicks"),
         ResponseSchema(name="Category", description="The category of the article."),
         ResponseSchema(name="Products", description="items I can sell to person reading this article"),
-        ResponseSchema(name="Summary", description="Artistic summary of the article in 2 sentences.Use simple language that start with the main subject, such as 'Portrait of woman','unicorn with tiger stripes', 'giant robot standing' etc, followed by descriptive terms like 'beautiful lighting','ultra-realistic', 'graceful', 'detailed face' etc")
+        ResponseSchema(name="Summary", description="article summary in 50 words")
         
     ]
 
@@ -38,7 +38,7 @@ def generate_article(topic):
     # Note: This is a different prompt template than before because we are using a Chat Model
     prompt = ChatPromptTemplate(
     messages=[
-        HumanMessagePromptTemplate.from_template("For Indian audiences write an article on: {topic}\n \
+        HumanMessagePromptTemplate.from_template("write an article on {topic} for Indian audiences\n \
                                                     {format_instructions}\n{user_prompt}")
     ],
     input_variables=["topic", "user_prompt"],

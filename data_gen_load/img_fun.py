@@ -200,9 +200,10 @@ def generate_image_dream_studio(prompt, output_name, output_folder=None,  width=
     result_image_data = response.content
 
     img = Image.open(io.BytesIO(result_image_data))
+    
 
     # upscale the image to double its size
-    upscaled_img = img.resize((img.size[0]*2, img.size[1]*2))
+    upscaled_img = img.resize((img.size[0]*1, img.size[1]*1))
 
     # Save the upscaled image to a file
     if output_folder is not None:
